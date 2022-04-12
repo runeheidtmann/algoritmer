@@ -36,7 +36,9 @@ def buildMinHeap(A):
     return A
 
 def extractMin(A):
-    min = A.pop(0)
+    min = A[0]
+    A[0] = A[len(A)-1]
+    A.pop()
     A = minHeapify(A,0)
     return min
 
@@ -49,6 +51,5 @@ def insert(A,key):
         A[i] = A[parent(i)]
         A[parent(i)] = temp
         i = parent(i)
-        
-    
+
     return A
